@@ -75,8 +75,9 @@ export const Search = styled.div`
    
 `
 
-
 export const TablleUsers = styled.table`
+    border-spacing: 0;
+    border-collapse: collapse;
     width: 100%;
     thead {
         background: var(--darktheme-base-black, #0E0C15);
@@ -86,7 +87,6 @@ export const TablleUsers = styled.table`
         width: 100%;
             tr {
                 text-align: center;
-
                 td {
                     padding: 14px 20px;
                     color: var(--darktheme-Gray-scale-Gray-6, #9CA3AF);
@@ -96,9 +96,46 @@ export const TablleUsers = styled.table`
                     font-style: normal;
                     font-weight: 500;
                     line-height: 18px; /* 128.571% */
+                    &:first-child {
+                        border-top-left-radius: 10px;
+                        border-bottom-left-radius: 10px;
+                    }
+
+                    &:last-child {
+                        border-top-right-radius: 10px;
+                        border-bottom-right-radius: 10px;
+                    }
+                    .arrow_tokens {
+                        display: flex;
+                        justify-content: center;
+                        gap: 5px;
+                        align-items: center;
+                      
+                    }
                 }
             }
     }
 
+    tbody {
+        text-align: center;
+
+        tr {
+            cursor: pointer;
+            td {
+                padding: 14px 0;
+                border-bottom: 1px solid #182e53;
+                color: var(--darktheme-base-white, #FFF);
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 18px; /* 128.571% */
+
+                div {
+                    display: flex;
+                    gap: 8px;
+                    justify-content: center;
+                }
+            }
+        }
+    }
 
 `
