@@ -24,6 +24,7 @@ const MainSection = () => {
 
       main.getOneUserData(id)
       main.setUserMail(mail)
+      main.setChartid(id)
       // SHEET CODE
 
   }
@@ -103,7 +104,7 @@ const MainSection = () => {
                 direction='right'
                 className='drawer'
             >
-              <DrawerBlock mail={main.userMail}  data={main.drawerData} close={()=>setIsOpen(false)}  />
+              <DrawerBlock id={main.chartId} mail={main.userMail}  data={main.drawerData} close={()=>setIsOpen(false)}  />
             </Drawer>
       </MainSectionBlock>
     

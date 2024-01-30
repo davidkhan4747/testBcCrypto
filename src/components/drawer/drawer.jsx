@@ -11,7 +11,8 @@ import { TablleUsers } from '../main-section/main-section.e'
 const DrawerBlock = ({
     data,
     mail,
-    close
+    close,
+    id
 }) => {
   
   console.log(data )
@@ -27,7 +28,8 @@ const DrawerBlock = ({
             </div>
             </HeadDrawer>
             
-          <Charts chartData={data}/>
+          <Charts id={id}/>
+
           <CenterMail>{mail}</CenterMail>
         <OperationsHistory>
           <h2>История операций</h2>

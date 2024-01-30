@@ -21,6 +21,7 @@ const MainContext = ({children}) => {
         sum : userSum,
         date : userDate
     }
+    const [chartId , setChartid] = useState()
   //   получение данных пользователей
   const getUsersData = () => {
     axios.get(`${API_URL}/user/list`).then((res)=>{
@@ -51,6 +52,7 @@ const getOneUserData = (id) => {
                 userType , sertUserType,
                 userSum , setUserSum,
                 userDrawedata,
+                chartId , setChartid
                 
             }}>
                 {children}
