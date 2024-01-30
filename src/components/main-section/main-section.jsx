@@ -19,10 +19,14 @@ const MainSection = () => {
   },[])
 
   const [isOpen, setIsOpen] = React.useState(false)
-  const toggleDrawer = (id) => {
+  const toggleDrawer = (id , mail) => {
       setIsOpen((prevState) => !prevState)
+
+      main.getOneUserData(id)
+      main.setUserMail(mail)
+      // SHEET CODE
+
   }
-  console.log(main.usersData)
   return (
     <>
       <MainSectionBlock className="wrapper">
@@ -66,7 +70,7 @@ const MainSection = () => {
             <tbody>
               {main.usersData?.map((item , idx)=>{
                 return (
-                  <tr onClick={()=>toggleDrawer(item.id)} key={idx}>
+                  <tr onClick={()=>toggleDrawer(item.id ,item.email)} key={idx}>
                   <td>{item.email}</td>
                   <td>{item.name}</td>
                   <td>{item.role}</td>
@@ -99,7 +103,7 @@ const MainSection = () => {
                 direction='right'
                 className='drawer'
             >
-              <DrawerBlock close={()=>setIsOpen(false)}  />
+              <DrawerBlock mail={main.userMail}  data={main.drawerData} close={()=>setIsOpen(false)}  />
             </Drawer>
       </MainSectionBlock>
     

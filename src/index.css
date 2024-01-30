@@ -22,4 +22,5 @@ body {
   background-color  : var(--darktheme-Gray-scale-Gray-4, #121825) !important;
   padding: 56px 36px;
   width: 470px !important;
+  overflow: scroll;
 }

@@ -118,11 +118,24 @@ export const TablleUsers = styled.table`
 
     tbody {
         text-align: center;
+        .drawer_tr {
+            td {
+                max-width: 101px;
 
+                
+            }
+        }
+
+        .red {
+                    color: #FE4242;
+                }
+                .green {
+                    color: #1ABB34;
+                }
         tr {
             cursor: pointer;
             td {
-                padding: 14px 0;
+                padding: 16px 0;
                 border-bottom: 1px solid #182e53;
                 color: var(--darktheme-base-white, #FFF);
                 font-size: 14px;
