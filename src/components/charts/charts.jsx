@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { ChartContainer, ChartTitle } from './charts.e'
 import {
   Chart as ChartJS,
@@ -11,7 +11,6 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { faker } from '@faker-js/faker';
 import { useMain } from '../../context/main-context';
 
 const Charts = ({id}) => {
@@ -51,7 +50,13 @@ const Charts = ({id}) => {
     },
   };
   
-  const labels = main.drawerData?.map((item) => item.created_at.slice(17));
+  // меняю форму страшной даты
+  const labels = main.drawerData?.map((item) => {
+    const date = new Date(item.created_at);
+    const options = { day: '2-digit', month: 'short', year: 'numeric' };
+    return date.toLocaleDateString('ru-RU', options).replace(/\./g, ''); // заменяем точки
+  });
+  // получаем  токены
   const tokensCh = main.drawerData?.map((item)=>item.amount)
   
  const data = {
@@ -62,11 +67,12 @@ const Charts = ({id}) => {
         data: tokensCh,
         borderColor: 'rgb(53, 162, 235)',
         backgroundColor: 'rgb(19, 91, 139)',
-  
         yAxisID: 'y',
+        
       },
     
     ],
+   
   };
   return (
     <ChartContainer>

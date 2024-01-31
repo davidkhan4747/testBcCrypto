@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export const ChartContainer = styled.div`
         width: 400px;
-        height: 300px;
         margin : 20px 0 ;
     
 `
