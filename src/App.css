@@ -1,5 +1,53 @@
 .app {
-  background:  #0E0C15;
+  background: #0e0c15;
   padding: 20px;
   min-height: 100vh;
+}
+
+.drawer {
+  overflow-x: hidden;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(34, 43, 68, 1);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(28, 99, 242, 0.724);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* abbos */
+
+table {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 1000px !important;
+  overflow-x: scroll !important;
+}
+
+.main-box {
+  border-radius: 18px;
+  background: var(--darktheme-Gray-scale-Gray-4, #121825);
+  /* padding: 24px 0px; */
+  margin-top: 40px;
+
+  h1 {
+    padding-top: 20px;
+  }
+}
+
+.table-drower {
+  min-width: 0px !important;
 }

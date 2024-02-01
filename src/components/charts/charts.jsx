@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ChartContainer, ChartTitle } from './charts.e'
+import { ChartContainer, ChartTitle } from './charts.e';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -13,15 +13,13 @@ import {
 import { Line } from 'react-chartjs-2';
 import { useMain } from '../../context/main-context';
 
-const Charts = ({id}) => {
+const Charts = ({ id }) => {
+  const main = useMain();
 
-
-  const main = useMain()
-
-  useEffect(()=>{
-    main.getOneUserData(id)
-  },[])
-  console.log(main.drawerData)
+  useEffect(() => {
+    main.getOneUserData(id);
+  }, []);
+  console.log(main.drawerData);
   ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -29,27 +27,26 @@ const Charts = ({id}) => {
     LineElement,
     Title,
     Tooltip,
-    Legend
+    Legend,
   );
-  
- const options = {
+
+  const options = {
     responsive: true,
     interaction: {
-      mode: 'index' ,
+      mode: 'index',
       intersect: false,
     },
     stacked: false,
-   
+
     scales: {
       y: {
-        type: 'linear' ,
+        type: 'linear',
         display: true,
-        position: 'right' ,
+        position: 'right',
       },
-    
     },
   };
-  
+
   // меняю форму страшной даты
   const labels = main.drawerData?.map((item) => {
     const date = new Date(item.created_at);
@@ -57,9 +54,9 @@ const Charts = ({id}) => {
     return date.toLocaleDateString('ru-RU', options).replace(/\./g, ''); // заменяем точки
   });
   // получаем  токены
-  const tokensCh = main.drawerData?.map((item)=>item.amount)
-  
- const data = {
+  const tokensCh = main.drawerData?.map((item) => item.amount);
+
+  const data = {
     labels,
     datasets: [
       {
@@ -68,18 +65,15 @@ const Charts = ({id}) => {
         borderColor: 'rgb(53, 162, 235)',
         backgroundColor: 'rgb(19, 91, 139)',
         yAxisID: 'y',
-        
       },
-    
     ],
-   
   };
   return (
     <ChartContainer>
-        <ChartTitle>Использование токенов</ChartTitle>
-        <Line data={data} options={options} />
+      <ChartTitle>Использование токенов</ChartTitle>
+      <Line data={data} options={options} />
     </ChartContainer>
-  )
-}
+  );
+};
 
-export default Charts
+export default Charts;
